@@ -1,0 +1,10 @@
+.menu{
+ text-align: center; 
+ font-size: large;
+}
+
+.menu a{
+  text-decoration: none;
+  color: blueviolet;
+  font-weight: 1000;
+}
