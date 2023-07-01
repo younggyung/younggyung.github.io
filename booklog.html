@@ -1,0 +1,694 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>독서노트</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 115%;
+	tab-size: 2;
+	font-weight: 600;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-info:hover{
+	background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+	
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+	height: 40px;
+	display: flex;
+	align-items: center;
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+
+
+</style></head><body><article id="d2fd933e-894d-47ad-8c70-6385530f1952" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/gradients_3.png" style="object-position:center 60%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">💙</span></div><h1 class="page-title"><span style="white-space:pre">독서노트</span></h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>개발 환경</th><td><span class="selected-value select-value-color-orange">1인</span><span class="selected-value select-value-color-purple">CSS</span><span class="selected-value select-value-color-purple">HTML</span><span class="selected-value select-value-color-pink">JavaScript</span><span class="selected-value select-value-color-brown">React Redux</span><span class="selected-value select-value-color-red">React Router</span><span class="selected-value select-value-color-brown">React.js</span><span class="selected-value select-value-color-orange">Vite</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>서비스 소개</th><td><span style="white-space:pre">독후감을 기록할 수 있는 독서노트 웹사이트</span></td></tr><tr class="property-row property-row-url"><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesUrl"><path d="M7.69922 10.8945L8.73828 9.84863C7.91797 9.77344 7.34375 9.51367 6.91992 9.08984C5.76465 7.93457 5.76465 6.29395 6.91309 5.14551L9.18262 2.87598C10.3379 1.7207 11.9717 1.7207 13.127 2.87598C14.2891 4.04492 14.2822 5.67188 13.1338 6.82031L11.958 7.99609C12.1768 8.49512 12.2451 9.10352 12.1289 9.62988L14.0908 7.6748C15.7725 6 15.7793 3.62109 14.084 1.92578C12.3887 0.223633 10.0098 0.237305 8.33496 1.91211L5.95605 4.29785C4.28125 5.97266 4.26758 8.35156 5.96289 10.0469C6.36621 10.4434 6.90625 10.7441 7.69922 10.8945ZM8.30078 5.13184L7.26855 6.17773C8.08203 6.25293 8.66309 6.51953 9.08008 6.93652C10.2422 8.09863 10.2422 9.73242 9.08691 10.8809L6.81738 13.1504C5.66211 14.3057 4.03516 14.3057 2.87305 13.1504C1.71094 11.9883 1.71777 10.3545 2.87305 9.20605L4.04199 8.03027C3.83008 7.53125 3.75488 6.92969 3.87109 6.39648L1.91602 8.35156C0.234375 10.0264 0.227539 12.4121 1.92285 14.1074C3.61816 15.8027 5.99707 15.7891 7.67188 14.1143L10.0439 11.7354C11.7256 10.0537 11.7324 7.6748 10.0371 5.98633C9.64062 5.58301 9.10059 5.28223 8.30078 5.13184Z"></path></svg></span>GitHub </th><td><a href="https://github.com/younggyung/Booklog" class="url-value">https://github.com/younggyung/Booklog</a></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesDate"><path d="M3.29688 14.4561H12.7031C14.1797 14.4561 14.9453 13.6904 14.9453 12.2344V3.91504C14.9453 2.45215 14.1797 1.69336 12.7031 1.69336H3.29688C1.82031 1.69336 1.05469 2.45215 1.05469 3.91504V12.2344C1.05469 13.6973 1.82031 14.4561 3.29688 14.4561ZM3.27637 13.1162C2.70898 13.1162 2.39453 12.8154 2.39453 12.2207V5.9043C2.39453 5.30273 2.70898 5.00879 3.27637 5.00879H12.71C13.2842 5.00879 13.6055 5.30273 13.6055 5.9043V12.2207C13.6055 12.8154 13.2842 13.1162 12.71 13.1162H3.27637ZM6.68066 7.38086H7.08398C7.33008 7.38086 7.41211 7.30566 7.41211 7.05957V6.66309C7.41211 6.41699 7.33008 6.3418 7.08398 6.3418H6.68066C6.44141 6.3418 6.35938 6.41699 6.35938 6.66309V7.05957C6.35938 7.30566 6.44141 7.38086 6.68066 7.38086ZM8.92285 7.38086H9.31934C9.56543 7.38086 9.64746 7.30566 9.64746 7.05957V6.66309C9.64746 6.41699 9.56543 6.3418 9.31934 6.3418H8.92285C8.67676 6.3418 8.59473 6.41699 8.59473 6.66309V7.05957C8.59473 7.30566 8.67676 7.38086 8.92285 7.38086ZM11.1582 7.38086H11.5547C11.8008 7.38086 11.8828 7.30566 11.8828 7.05957V6.66309C11.8828 6.41699 11.8008 6.3418 11.5547 6.3418H11.1582C10.9121 6.3418 10.8301 6.41699 10.8301 6.66309V7.05957C10.8301 7.30566 10.9121 7.38086 11.1582 7.38086ZM4.44531 9.58203H4.84863C5.09473 9.58203 5.17676 9.50684 5.17676 9.26074V8.86426C5.17676 8.61816 5.09473 8.54297 4.84863 8.54297H4.44531C4.20605 8.54297 4.12402 8.61816 4.12402 8.86426V9.26074C4.12402 9.50684 4.20605 9.58203 4.44531 9.58203ZM6.68066 9.58203H7.08398C7.33008 9.58203 7.41211 9.50684 7.41211 9.26074V8.86426C7.41211 8.61816 7.33008 8.54297 7.08398 8.54297H6.68066C6.44141 8.54297 6.35938 8.61816 6.35938 8.86426V9.26074C6.35938 9.50684 6.44141 9.58203 6.68066 9.58203ZM8.92285 9.58203H9.31934C9.56543 9.58203 9.64746 9.50684 9.64746 9.26074V8.86426C9.64746 8.61816 9.56543 8.54297 9.31934 8.54297H8.92285C8.67676 8.54297 8.59473 8.61816 8.59473 8.86426V9.26074C8.59473 9.50684 8.67676 9.58203 8.92285 9.58203ZM11.1582 9.58203H11.5547C11.8008 9.58203 11.8828 9.50684 11.8828 9.26074V8.86426C11.8828 8.61816 11.8008 8.54297 11.5547 8.54297H11.1582C10.9121 8.54297 10.8301 8.61816 10.8301 8.86426V9.26074C10.8301 9.50684 10.9121 9.58203 11.1582 9.58203ZM4.44531 11.7832H4.84863C5.09473 11.7832 5.17676 11.708 5.17676 11.4619V11.0654C5.17676 10.8193 5.09473 10.7441 4.84863 10.7441H4.44531C4.20605 10.7441 4.12402 10.8193 4.12402 11.0654V11.4619C4.12402 11.708 4.20605 11.7832 4.44531 11.7832ZM6.68066 11.7832H7.08398C7.33008 11.7832 7.41211 11.708 7.41211 11.4619V11.0654C7.41211 10.8193 7.33008 10.7441 7.08398 10.7441H6.68066C6.44141 10.7441 6.35938 10.8193 6.35938 11.0654V11.4619C6.35938 11.708 6.44141 11.7832 6.68066 11.7832ZM8.92285 11.7832H9.31934C9.56543 11.7832 9.64746 11.708 9.64746 11.4619V11.0654C9.64746 10.8193 9.56543 10.7441 9.31934 10.7441H8.92285C8.67676 10.7441 8.59473 10.8193 8.59473 11.0654V11.4619C8.59473 11.708 8.67676 11.7832 8.92285 11.7832Z"></path></svg></span>날짜</th><td><time>@2023년 5월 20일 → 2023년 6월 28일</time></td></tr><tr class="property-row property-row-url"><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesUrl"><path d="M7.69922 10.8945L8.73828 9.84863C7.91797 9.77344 7.34375 9.51367 6.91992 9.08984C5.76465 7.93457 5.76465 6.29395 6.91309 5.14551L9.18262 2.87598C10.3379 1.7207 11.9717 1.7207 13.127 2.87598C14.2891 4.04492 14.2822 5.67188 13.1338 6.82031L11.958 7.99609C12.1768 8.49512 12.2451 9.10352 12.1289 9.62988L14.0908 7.6748C15.7725 6 15.7793 3.62109 14.084 1.92578C12.3887 0.223633 10.0098 0.237305 8.33496 1.91211L5.95605 4.29785C4.28125 5.97266 4.26758 8.35156 5.96289 10.0469C6.36621 10.4434 6.90625 10.7441 7.69922 10.8945ZM8.30078 5.13184L7.26855 6.17773C8.08203 6.25293 8.66309 6.51953 9.08008 6.93652C10.2422 8.09863 10.2422 9.73242 9.08691 10.8809L6.81738 13.1504C5.66211 14.3057 4.03516 14.3057 2.87305 13.1504C1.71094 11.9883 1.71777 10.3545 2.87305 9.20605L4.04199 8.03027C3.83008 7.53125 3.75488 6.92969 3.87109 6.39648L1.91602 8.35156C0.234375 10.0264 0.227539 12.4121 1.92285 14.1074C3.61816 15.8027 5.99707 15.7891 7.67188 14.1143L10.0439 11.7354C11.7256 10.0537 11.7324 7.6748 10.0371 5.98633C9.64062 5.58301 9.10059 5.28223 8.30078 5.13184Z"></path></svg></span>배포</th><td><a href="https://booklog-yoki.netlify.app/" class="url-value">https://booklog-yoki.netlify.app/</a></td></tr></tbody>
+</table></header><div class="page-body"><h1 id="9eb2e50f-ff40-48e4-9cb6-72a6443613e1" class=""><span style="white-space:pre">📖 독서노트 (my booklog)</span></h1><figure id="5e6f9dcd-2302-4a78-9e2e-c0e568132b62"><a href="https://booklog-yoki.netlify.app/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title"><span style="white-space:pre">My Booklog</span></div></div><div class="bookmark-href">https://booklog-yoki.netlify.app/</div></div></a></figure><h2 id="adbcf631-f02c-4293-bbb6-7946ef75fb0e" class="block-color-gray_background"><span style="white-space:pre">[1] 개요</span></h2><p id="7c4e4822-1c6a-429b-994b-dfad2cee447e" class=""><strong><span style="white-space:pre">  </span></strong><strong><mark class="highlight-blue"><span style="white-space:pre">기획 배경 </span></mark></strong></p><ul id="aa012e67-822a-4868-bbf9-f6d76a5bf4f8" class="bulleted-list"><li style="list-style-type:disc"><span style="white-space:pre">기록은 직관적인 것이 중요하다고 생각합니다.</span></li></ul><ul id="9a67e73c-7790-4ac9-bfa5-f267625152e3" class="bulleted-list"><li style="list-style-type:disc"><span style="white-space:pre-wrap">독서는 지식과 영감을 얻을 수 있는 소중한 활동이지만, 그 내용을 기억하고 정리하는 것은  어려운 일입니다. 그래서 독서 경험을 효율적으로 관리하고 기록할 수 있는 독서노트 서비스를 만들었습니다.</span></li></ul><ul id="cde0e32b-f063-45d6-86b5-5fa08eb607ee" class="bulleted-list"><li style="list-style-type:disc"><span style="white-space:pre">개발 기간 : 2023년 5월 20일 ~ 진행중</span></li></ul><ul id="e070a763-ff4e-4dc3-b4a3-ff1cdeecbc10" class="bulleted-list"><li style="list-style-type:disc"><span style="white-space:pre">최신배포 :  2023년 6월 28일</span></li></ul><h2 id="37fdaf55-4778-428f-a135-ef6092a996d1" class="block-color-gray_background"><span style="white-space:pre">[2] 프로젝트 컨셉 &amp; 주요 기능</span></h2><p id="ae833f6b-4b0b-4663-8462-5afe7cbad093" class=""><mark class="highlight-blue"><strong><span style="white-space:pre">  프로젝트 컨셉 </span></strong></mark></p><ul id="e31329e0-981e-4eaa-bc92-077630522707" class="bulleted-list"><li style="list-style-type:disc"><span style="white-space:pre-wrap">기록은 간편하게 쓰고, 직관적으로 볼 수 있어야 한다고 생각합니다. 따라서 랜딩페이지 없이 접속을 하면 바로 게시글이 보여지게 했고, 헤더에 홈페이지 로고와 메뉴를 노출했습니다. 게시글 목록에서는 제목과 본문(200자), 카테고리, 작성일, 작성자의 닉네임이 노출됩니다.</span></li></ul><figure id="4433120a-0677-4b6c-bf70-abebc58f2479" class="image"><a href="./image/main.png"><img style="width:1242px" src="/image/main.png"/></a><figcaption><span style="white-space:pre">메인페이지</span></figcaption></figure><p id="de3081f3-af49-41c6-8f5b-c35dee9ae5ff" class="">
+</p><ul id="086f7dc9-a66f-4e5a-b11f-224197ecc355" class="bulleted-list"><li style="list-style-type:disc"><strong><span style="white-space:pre">로그인/회원가입 페이지</span></strong><p id="ba6ec155-5ca4-415c-812d-45f37ec2b05a" class=""><span style="white-space:pre"> 로그인을 누르거나 로그인 되지 않은 상태로 글쓰기 버튼을 누르면 로그인 페이지로 연결됩니다.</br> 독서와 글쓰기를 통해 스스로를 위한 온전한 시간을 갖기를 바라는 마음으로 </span><span style="white-space: pre;"><code>Dive into your Ocean</code></span><span style="white-space: pre-wrap;">이라는 슬로건을 사용했습니다.</span></p><p id="b6a0e6f0-76b3-470e-8dc7-11ef90be77c3" class="">
+</p><figure id="a56d82d0-15d7-4291-95f2-cf15d6a7665a" class="image"><a href="./image/login.png"><img style="width:1596px" src="./image/login.png"/></a><figcaption><span style="white-space:pre">로그인 페이지</span></figcaption></figure></li></ul><ul id="3e689f70-bc0a-4c25-b4d7-b92f43e7e961" class="bulleted-list"><li style="list-style-type:disc"><code><span style="white-space:pre">계정이 없으신가요?</span></code><span style="white-space:pre"> 를 누르면 회원가입 페이지가, </span><code><span style="white-space:pre">비밀번호 찾기</span></code><span style="white-space:pre-wrap"> 를 누르면 비밀번호 재설정 이메일을 전송하는 페이지가 </span><strong><span style="white-space:pre-wrap">모달창</span></strong>으로 나타납니다. 버튼에 연결된 ModalOpen 함수에 매개변수로 string값을 주어서 각각 다른 컴포넌트를 포함하도록 작성했습니다.</li></ul><hr id="d2ad8d79-8f16-4b05-b40e-761803706ab9"/><ul id="3c266810-517d-4f38-9f15-6e22b0ae035a" class="bulleted-list"><li style="list-style-type:disc"><strong><span style="white-space:pre">Firebase를 이용한 Autu 기능</span></strong><ul id="42e80eb7-5da2-4c25-a741-f0351c4d296a" class="bulleted-list"><li style="list-style-type:circle"><span style="white-space:pre">회원가입 / 로그인 / 비밀번호 찾기 </span></li></ul><hr id="6748cd56-2176-4277-a553-89b899af1b7e"/></li></ul><ul id="da60c9ef-66cd-47be-9248-fde4b31354e1" class="bulleted-list"><li style="list-style-type:disc"><strong><span style="white-space:pre">Glitch를 이용한 서버 호스팅</span></strong><ul id="518d99c1-9281-494a-8c0f-3e7363e21393" class="bulleted-list"><li style="list-style-type:circle"><span style="white-space:pre">Glitch에 Json -server를 호스팅하여 DB 서버로 사용했습니다.</span></li></ul></li></ul><hr id="6bba258b-d435-4dc6-8d37-758fec0f8f3d"/><ul id="6d398a39-3a8c-4387-9612-d0620811070b" class="bulleted-list"><li style="list-style-type:disc"><strong><span style="white-space:pre">Firestore를 이용한 닉네임 설정</span></strong><ul id="5bf25828-4a29-4146-a242-d65b5b80bf9d" class="bulleted-list"><li style="list-style-type:circle"><span style="white-space:pre-wrap">firebase에서 제공하는 데이터베이스인 Firestore를 사용하였습니다. 회원가입시 이메일,패스워드,닉네임을 기입하면 계정을 생성한 후 사용자의 uid 값을 문서id로 가지는 데이터 도큐먼트를 만들어 닉네임을 저장합니다.</span></li></ul></li></ul><hr id="921db89e-0d54-4b8f-80d4-09704c76cdec"/><ul id="cee20d4c-e4a1-4931-b443-22a7046652e9" class="bulleted-list"><li style="list-style-type:disc"><strong><span style="white-space:pre">네이버 검색 API</span></strong><span style="white-space:pre"> 를 이용한 책검색</span><ul id="2fac30c3-83ad-469e-b7c9-b53fb4fb7f3c" class="bulleted-list"><li style="list-style-type:circle"><span style="white-space:pre-wrap">헤더 메뉴에 위치하여, 어느 페이지에서든 접근이 가능하며,  글을 쓰거나 다른사람의 글을 읽는 중에도 쉽게 검색할 수 있도록 모달 컴포넌트로 구현하였습니다.</span></li></ul></li></ul><h2 id="11ba6ad0-d7bd-46d1-a589-f3150b3a7b4e" class="block-color-gray_background"><span style="white-space:pre">[3] 배운점 &amp; 아쉬웠던 점 </span></h2><ul id="9e32b745-66ea-4545-af69-6d49ee29db22" class="bulleted-list"><li style="list-style-type:disc"><strong><code><span style="white-space:pre">배운점</span></code></strong><ul id="d3e506e6-0c5f-4bc0-aa7d-731e81d2ee5c" class="bulleted-list"><li style="list-style-type:circle"><span style="white-space:pre-wrap">프로젝트를 시작 할 때 저는 1차 목표로 CRUD를 완전하게 학습하고 구현하는 것으로 삼았습니다. 그리고 데이터를 성공적으로 다루게 된 다음에는 로그인 기능에 대해 고민하게 되었고, 세션,토큰을 이용한 인증에 대해 공부 한 후  firebase를 활용하여 사용자 인증을 구현했습니다. </span></li></ul><ul id="505158ae-abcc-4f01-93ea-89c6d32fba49" class="bulleted-list"><li style="list-style-type:circle"><span style="white-space:pre-wrap">로그인/회원가입 기능을 추가한 다음에는 사용자 인증 정보를 컴포넌트 전역으로 관리하기 위해 Redux를 사용했습니다. 이런 과정을 통해 작은 프로젝트이지만 배포에 이르기까지 매일 꾸준히 한가지 이상의 과제를 해결하며  컴포넌트를 확장시켰습니다.</span></li></ul><ul id="c4a9ee16-c10f-4e66-8f5f-83d7c26b252b" class="bulleted-list"><li style="list-style-type:circle"><span style="white-space:pre-wrap">리액트 라우터를 이용해 컴포넌트들의 레이아웃을 구성하는 법을 익히고, 데이터의 흐름과  생명주기에 대한 이해와 감각을 길렀습니다. </span></li></ul><ul id="6f49bcdb-4228-4379-96d1-21328bfc359a" class="bulleted-list"><li style="list-style-type:circle"><span style="white-space:pre-wrap">뿐만 아니라 혼자 프로젝트를 진행하면서 일정 관리, 프로젝트 관리, 지속적으로 성잘 할 수 있는 공부법에 대한 인사이트를 얻었습니다. 자세한 내용은 블로그에 정리했습니다.</span><figure id="0a09cee2-7850-4b91-a310-7761ba409d14"><a href="https://meldu.tistory.com/22" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title"><span style="white-space:pre">혼자서 토이프로젝트를 진행하면서 깨달은 몇가지.</span></div><div class="bookmark-description">토이프로젝트를 시작한지 어언 한달쯤이 지나가는 것 같다. 거창한걸 만들려고 한것은 아니였지만 끝이 날듯 말듯.. 자꾸 늘어나는 할일 😂 프로젝트 성과를 떠나, 그동안 어떤 깨달음이 있었는지 정리해보자. 1. 공식문서를 꼼꼼히 잘 읽자. - 지금도 초보지만, 왕왕초보 시절엔 공식문서 봐도 몰랐기 때문에, 누군가 친절하게 설명해놓은 자료를 우선적으로 참고했는데. 이제는 공식문서부터 먼저 읽고, 그래도 모르겠으면 google로 영문검색 때린다. 여기서 느낀게, 프론트쪽 자료는 국내자료보다 외국자료가 후어얼씬 많아서 공식문서+구글 영문검색이 최고다. 그리고 라이브러리 이용할때 공식문서가 얼마나 잘 작성되어있나를 기준으로 골라쓰는 분들이 많던데, 왜그런지 납득납득. 영어의 벽을 조금만 견디고 공식문서를 꼼꼼히 읽..</div></div><div class="bookmark-href"><img src="https://t1.daumcdn.net/tistory_admin/favicon/tistory_favicon_32x32.ico" class="icon bookmark-icon"/>https://meldu.tistory.com/22</div></div><img src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcxPPlg%2Fbtsk9ctuM4C%2FuZVcY5gdt9llKPZvhjOOh1%2Fimg.png" class="bookmark-image"/></a></figure></li></ul><ul id="452ff21d-a516-4346-9370-8032c74d873b" class="bulleted-list"><li style="list-style-type:circle"><span style="white-space:pre">UI, 모든 것에는 이유가 있다. </span><ul id="11f02c06-1b38-49b7-abdd-d77d4c9aff90" class="bulleted-list"><li style="list-style-type:square"><span style="white-space:pre-wrap">평소에 여러 웹사이트를 이용하면서도 당연하게 생각했던 것들, 예를 들어 작성완료 버튼의 위치, 화면의 비율, 어디로 리다이렉트 할것인지에 대해 직접 설계해봄으로써 모든 UI 요소는 디자인 뿐만 아니라 사용자의 편의와 효율성, 행동패턴을 고려하여 설계되어야 한다는 점을 알게 되었습니다. </span></li></ul></li></ul></li></ul><hr id="430b3ac9-7c3a-41b0-8fab-af546a3672bb"/><ul id="9233114b-ac89-445d-8c12-60e50d2d7fca" class="bulleted-list"><li style="list-style-type:disc"><strong><code><span style="white-space:pre">이런점이 아쉬웠습니다</span></code></strong></li></ul><ol type="1" id="5c3201fd-9d31-4196-9efc-5fc7d9531ea3" class="numbered-list" start="1"><li><span style="white-space:pre">현업에서의 개발 표준에 대해 배우고 싶습니다.</span><ul id="61cc69ae-0a68-46e7-a2fe-b43d448bf897" class="bulleted-list"><li style="list-style-type:disc"><span style="white-space:pre-wrap">비동기 작업을 처리하는 방법이나 미들웨어의 사용 등, 해결 과제가 생기면 학습 자료들을 통해 기능을 구현했지만 현업에서 실제로 사용하는 방법인지에 대한 궁금증이 있었습니다.</span></li></ul></li></ol><ol type="1" id="f3d06f2e-05ba-425b-8fdd-686ece39e6d5" class="numbered-list" start="2"><li><span style="white-space:pre"> 라우터를 더 똑똑하게 이용하고 싶습니다.</span><ul id="86a041bc-037c-46e2-81e0-7a52499b51c0" class="bulleted-list"><li style="list-style-type:disc"><span style="white-space:pre-wrap">게시글 목록, 게시글 상세보기 컴포넌트는 리액트 라우터의 loader를 사용해서 데이터를 공유하고 있습니다. 리덕스로 중앙집중적인 관리를 하기에 앞서, 이와 같이 라우터의 부모 컴포넌트-자식 컴포넌트의 관계를 잘 이용하면 작은 프로젝트에서는 더 컴팩트한 상태관리를 할 수 있지않을까 하는 생각을 했습니다.</span></li></ul></li></ol><hr id="27056ad2-b3aa-4bfb-9514-762ef21c659c"/><ul id="7d91166a-ed87-45b0-801f-5d930341109e" class="bulleted-list"><li style="list-style-type:disc"><code><strong><span style="white-space:pre">이렇게 개선하겠습니다</span></strong></code><ul id="f344aade-d18a-4240-918c-1cb489d8d4d6" class="bulleted-list"><li style="list-style-type:circle"><span style="white-space:pre">물론 웹서비스의 역할을 하려면 아직 추가되어야 할 기능이 많습니다! </span></li></ul><ul id="64ef7e35-9ea7-42e7-b69a-9dcc0ef9c122" class="bulleted-list"><li style="list-style-type:circle"><span style="white-space:pre">향후 다음과 같은 기능을 업그레이드 할 예정입니다.</span><ul id="4d112466-4f84-4152-990d-c32ba9cd8abd" class="bulleted-list"><li style="list-style-type:square"><span style="white-space:pre">회원가입시 이메일 인증</span></li></ul><ul id="ab3d56a0-e293-4655-9a62-b2d3a9ce5c1c" class="bulleted-list"><li style="list-style-type:square"><span style="white-space:pre">마이페이지(내가 쓴 글 보기)</span></li></ul><ul id="06db1472-b2b9-4f11-8f11-8b1072512ae5" class="bulleted-list"><li style="list-style-type:square"><span style="white-space:pre">댓글, 좋아요 기능</span></li></ul><ul id="c2839a9e-9cb8-46de-b104-8e7f5fcf5787" class="bulleted-list"><li style="list-style-type:square"><span style="white-space:pre">게시글 공개/비공개</span></li></ul><ul id="2aae14ff-6526-4a23-b67b-11b4ee5e0d43" class="bulleted-list"><li style="list-style-type:square"><span style="white-space:pre">피드 둘러보기</span></li></ul></li></ul></li></ul><hr id="49f6c22d-5c37-484f-a56c-bb153ad32e9a"/><h2 id="503f85e3-b2f1-4899-a514-7e8c3eb0a570" class="block-color-default"><span style="white-space:pre">+ 개발일지</span></h2><hr id="5a409fe4-d591-401f-a8da-8eb2a3c70ffa"/>
+<figure id="6383b03e-44e2-41a8-8180-972bcb03e1e9" class="link-to-page"><a href="https://prickly-hydrangea-288.notion.site/6383b03e44e241a88180972bcb03e1e9">🏃‍♀️독서노트 개발 일지🏃</a></figure><hr id="a327cd0b-c6b4-40b5-baba-d53d35cab85b"/><p id="aaf472dc-9110-48c2-88f5-20002991501b" class="">
+</p></div></article></body></html>
+
+
+
